@@ -48,7 +48,7 @@ def print_speakers(speakers, escape=False):
 
 
 def get_speaker_id(message):
-    speaker_id = input(message)
+    speaker_id = 0 #input(message)
     try:
         speaker_id = int(speaker_id)
     except:
@@ -84,8 +84,8 @@ if __name__ == '__main__':
     else:
         escape = False
 
-    model = input('Path of a VITS model: ')
-    config = input('Path of a config file: ')
+    model = "./lib/seraphim.pth" #input('Path of a VITS model: ')
+    config = "./lib/seraphim.json" #input('Path of a config file: ')
 
     hps_ms = utils.get_hparams_from_file(config)
     n_speakers = hps_ms.data.n_speakers if 'n_speakers' in hps_ms.data.keys() else 0
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     if n_symbols != 0:
         if not emotion_embedding:
             while True:
-                choice = input('TTS or VC? (t/v):')
+                choice = "t" #input('TTS or VC? (t/v):')
                 if choice == 't':
                     text = input('Text to read: ')
                     if text == '[ADVANCED]':
@@ -153,7 +153,7 @@ if __name__ == '__main__':
 
                     print_speakers(speakers, escape)
                     speaker_id = get_speaker_id('Speaker ID: ')
-                    out_path = input('Path to save: ')
+                    out_path = "./test.wav"#input('Path to save: ')
 
                     with no_grad():
                         x_tst = stn_tst.unsqueeze(0)
