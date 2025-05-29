@@ -86,6 +86,8 @@ if __name__ == '__main__':
 
     model = "./lib/seraphim.pth" #input('Path of a VITS model: ')
     config = "./lib/seraphim.json" #input('Path of a config file: ')
+    # model = "./lib/asl.pth" #input('Path of a VITS model: ')
+    # config = "./lib/asl.json" #input('Path of a config file: ')
 
     hps_ms = utils.get_hparams_from_file(config)
     n_speakers = hps_ms.data.n_speakers if 'n_speakers' in hps_ms.data.keys() else 0
